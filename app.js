@@ -16,15 +16,15 @@ const diary={牡羊座:'自分の気持ちに戻り、今日の私が選んだ�
 const roles={Sun:'自分らしさと人生の軸',Moon:'安心したい気持ちと素の反応',Mercury:'考え方と伝え方',Venus:'好意の示し方と受け取り方',Mars:'行動の仕方・欲求・衝突の火種',Jupiter:'広がり・信じる力',Saturn:'責任・不安・長く育てる力'},houses=[[7,'ふたりの約束','対等な相手との約束、役割、互いを一人の人として尊重する場所。'],[4,'安心の土台','外で頑張る前に帰ってこられる心の居場所、暮らし、休み方の場所。'],[5,'ときめきと表現','恋愛の喜び、遊び心、好意を表す方法を見る場所。'],[8,'深い信頼','本音、共有するもの、簡単には見せない弱さと信頼を見る場所。']];
 
 const $=x=>document.getElementById(x);
-let swe;
+let swe,sweReady;
 cities.concat(prefs).forEach(([n])=>$('places').insertAdjacentHTML('beforeend',`<option value="${n}">`));
 const norm=n=>(n+360)%360,sign=n=>signs[Math.floor(norm(n)/30)];
 function lookup(v){const key=s=>s.replace(/[\s　都道府県]/g,'');const q=key(v);
 return cities.concat(prefs).find(p=>q.includes(key(p[0]))||key(p[0]).includes(q))}function house(l,c){for(let i=1;
 i<13;
 i++)if(norm(l-c[i])<norm(c[i===12?1:i+1]-c[i]))return i;
-return 12}async function engine(){if(!swe){if(!window.SwissEphemeris)throw Error('天体計算の準備が完了していません。');swe=new window.SwissEphemeris();
-await swe.init()}return swe}
+return 12}async function engine(){if(!sweReady){if(!window.SwissEphemeris)throw Error('天体計算の準備が完了していません。');swe=new window.SwissEphemeris();
+sweReady=swe.init()}await sweReady;return swe}
 async function chart(id){const dt=$(id+'Date').value,tm=$(id+'Time').value,loc=lookup($(id+'Place').value);
 if(!dt)throw Error('二人分の生年月日を入れてくれ。');
 if(!loc)throw Error('出生地は候補の市区町村か都道府県を入れてくれ。');
