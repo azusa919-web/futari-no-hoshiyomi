@@ -1,4 +1,4 @@
-import {SwissEphemeris,Planet,HouseSystem} from './vendor/swisseph-browser.js';
+import {SwissEphemeris,Planet,HouseSystem} from './vendor/swisseph-browser.js?v=20261012b';
 
 const signs=['牡羊座','牡牛座','双子座','蟹座','獅子座','乙女座','天秤座','蠍座','射手座','山羊座','水瓶座','魚座'],planetNames={Sun:'太陽',Moon:'月',Mercury:'水星',Venus:'金星',Mars:'火星',Jupiter:'木星',Saturn:'土星'};
 
