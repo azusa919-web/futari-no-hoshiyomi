@@ -62,8 +62,8 @@
   document.getElementById('birthForm').addEventListener('submit', function (event) {
     event.preventDefault();
   });
-  window.addEventListener('error', function () {
-    document.getElementById('formMessage').textContent = '計算の準備で止まりました。入力内容は残っています。もう一度試しても直らない場合は、この画面をそのまま教えてください。';
+  window.addEventListener('error', function (event) {
+    document.getElementById('formMessage').textContent = '計算の準備で止まりました。入力内容は残っています。技術情報：' + (event.message || '不明なエラー');
   });
 </script>
 <script type="module" src="./app.js">
