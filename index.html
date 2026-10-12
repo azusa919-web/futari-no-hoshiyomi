@@ -66,21 +66,7 @@
     document.getElementById('formMessage').textContent = '計算の準備で止まりました。入力内容は残っています。技術情報：' + (event.message || '不明なエラー');
   });
 </script>
-<script>
-  // 計算ライブラリを単体で読み込んでからページ本体を起動する。
-  const library = document.createElement('script');
-  library.type = 'module';
-  library.src = './vendor/swisseph-browser.js?v=20261012d';
-  library.onload = function () {
-    const app = document.createElement('script');
-    app.type = 'module';
-    app.src = './app.js?v=20261012d';
-    document.body.appendChild(app);
-  };
-  library.onerror = function () {
-    document.getElementById('formMessage').textContent = '天体計算のファイルを読み込めませんでした。入力内容は残っています。';
-  };
-  document.head.appendChild(library);
-</script>
+<script type="module" src="./vendor/swisseph-browser.js?v=20261012e"></script>
+<script type="module" src="./app.js?v=20261012e"></script>
 </body>
 </html>

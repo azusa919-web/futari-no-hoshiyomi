@@ -56,5 +56,6 @@ b.textContent='ふたりの星をひらく　→'}});
 if(new URLSearchParams(location.search).has('selftest')){
   $('yourName').value='確認用A';$('yourPlace').value='徳島県徳島市';$('yourDate').value='1980-01-01';$('yourTime').value='12:00';
   $('partnerName').value='確認用B';$('partnerPlace').value='島根県松江市';$('partnerDate').value='1982-05-06';$('partnerTime').value='01:00';
-  setTimeout(()=>$('birthForm').requestSubmit(),0);
+  const submitTest=()=>window.SwissEphemeris?$('birthForm').requestSubmit():setTimeout(submitTest,50);
+  submitTest();
 }
