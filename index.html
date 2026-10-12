@@ -1,3 +1,72 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="ふたりの出生図から、パートナーシップを読む星読み"><title>ふたりの星読み</title><style>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="ふたりの出生図から、パートナーシップを読む星読み">
+<title>ふたりの星読み</title>
+<style>
 :root{--ink:#103e4d;--paper:#fffaf0;--gold:#b99a56;--pale:#edf2e8;--line:#cfbb86;--text:#183e4a}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.8}body{overflow-y:auto}.sheet{width:100%;max-width:640px;margin:0 auto;background:var(--paper);border-inline:1px solid #e3d5af}.inner{padding:28px 22px 72px}.brand{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px;font-family:Georgia,"Hiragino Mincho ProN",serif}.brand b{font-size:27px;letter-spacing:.12em}.brand small{color:#8b7445}.eyebrow{text-align:center;color:#91723b;letter-spacing:.1em;margin:30px 0 13px;font-size:13px}h1,h2,h3{font-family:Georgia,"Hiragino Mincho ProN",serif;color:var(--ink)}h1{text-align:center;font-size:30px;line-height:1.45;margin:0 0 15px}h2{font-size:26px;line-height:1.45;margin:0 0 10px}.lead{text-align:center;color:#51656a;margin:0 auto 22px}.notice,.card{background:var(--pale);border-radius:14px;padding:16px 18px}.notice{font-size:13px;margin:22px 0}.birthbox{background:#fffdf7;border:1px solid var(--line);border-radius:17px;padding:22px 20px;margin-top:20px}.birthbox h2{font-size:24px}.birthbox p{margin:0;color:#657276;font-size:14px}label{display:block;font-weight:700;margin:19px 0 6px}input,select{display:block;width:100%;min-height:52px;border:1px solid #bda873;border-radius:12px;background:#fffef9;color:var(--text);padding:12px 14px;font:16px inherit}.hint{font-size:13px;color:#627174;margin:8px 0 0}.button{width:100%;border:0;border-radius:999px;background:var(--ink);color:#fffaf0;padding:16px 18px;margin:18px 0 0;font:700 17px Georgia,"Hiragino Mincho ProN",serif;letter-spacing:.04em;box-shadow:0 3px 0 var(--gold);cursor:pointer}.button:disabled{opacity:.55}.hidden{display:none!important}.error{color:#a43628;font-weight:700;margin-top:12px}.result-head{padding:27px 22px;background:linear-gradient(145deg,#f5e9cc,#fffaf0 56%,#ddecdf);border-bottom:1px solid var(--line)}.result-head h1{font-size:28px}.room{padding:26px 22px;border-top:1px solid var(--line)}.number{color:#8d6d36;font-weight:700;font-size:13px;letter-spacing:.08em}.source{background:#f8eed0;border:1px solid var(--line);border-radius:14px;padding:18px;margin:15px 0}.reading{background:#eaf1eb;border:1px solid #b7cbbb;border-radius:14px;padding:19px;margin-top:16px}.reading h3{font-size:19px;margin:0 0 8px}.reading p{margin:0 0 14px}.planet{border-top:1px solid #bdcdbf;padding-top:13px;margin-top:13px}.choices{display:grid;gap:10px;margin-top:15px}.choice{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:13px;background:#fffdf7;font-weight:600}.choice input{width:20px;min-height:20px}.footer{font-size:12px;color:#647174;text-align:center;padding:24px 22px 60px}@media(max-width:420px){.inner{padding-inline:20px}.result-head,.room{padding-inline:20px}h1{font-size:28px}}
-</style></head><body><main class="sheet"><section id="formPage" class="inner"><header class="brand"><b>✦ FUTARI</b><small>ふたりの星読み</small></header><p class="eyebrow">パートナーシップの出生図</p><h1>ふたりの星から、<br>関係の景色をひらく。</h1><p class="lead">出生地・日時から、二人それぞれの星とハウスを計算します。</p><p class="notice">入力内容はこの端末だけで扱います。出生時刻が分からない時は天体の星座までは読めますが、ハウスは表示しません。</p><form id="birthForm" novalidate><section class="birthbox"><h2>あなたのこと</h2><p>今このページを開いている人。</p><label for="yourName">呼び名（任意）</label><input id="yourName" placeholder="例：あーちゃん"><label for="yourPlace">出生地</label><input id="yourPlace" list="places" placeholder="例：徳島県徳島市"><p class="hint">市区町村名か都道府県を入力します。</p><label for="yourDate">生年月日</label><input id="yourDate" type="date" required><label for="yourTime">出生時刻（わかれば）</label><input id="yourTime" type="time"></section><section class="birthbox"><h2>パートナーのこと</h2><p>お相手の出生データ。</p><label for="partnerName">呼び名（任意）</label><input id="partnerName" placeholder="例：あきらくん"><label for="partnerPlace">出生地</label><input id="partnerPlace" list="places" placeholder="例：島根県松江市"><p class="hint">市区町村名か都道府県を入力します。</p><label for="partnerDate">生年月日</label><input id="partnerDate" type="date" required><label for="partnerTime">出生時刻（わかれば）</label><input id="partnerTime" type="time"></section><datalist id="places"></datalist><p id="formMessage" class="error" aria-live="polite"></p><button id="submitButton" class="button" type="submit">ふたりの星をひらく　→</button></form></section><section id="resultPage" class="hidden"></section></main><script type="module" src="./app.js"></script></body></html>
+</style>
+</head>
+<body>
+<main class="sheet">
+<section id="formPage" class="inner">
+<header class="brand">
+<b>✦ FUTARI</b>
+<small>ふたりの星読み</small>
+</header>
+<p class="eyebrow">パートナーシップの出生図</p>
+<h1>ふたりの星から、<br>関係の景色をひらく。</h1>
+<p class="lead">出生地・日時から、二人それぞれの星とハウスを計算します。</p>
+<p class="notice">入力内容はこの端末だけで扱います。出生時刻が分からない時は天体の星座までは読めますが、ハウスは表示しません。</p>
+<form id="birthForm" novalidate>
+<section class="birthbox">
+<h2>あなたのこと</h2>
+<p>今このページを開いている人。</p>
+<label for="yourName">呼び名（任意）</label>
+<input id="yourName" placeholder="例：あーちゃん">
+<label for="yourPlace">出生地</label>
+<input id="yourPlace" list="places" placeholder="例：徳島県徳島市">
+<p class="hint">市区町村名か都道府県を入力します。</p>
+<label for="yourDate">生年月日</label>
+<input id="yourDate" type="date" required>
+<label for="yourTime">出生時刻（わかれば）</label>
+<input id="yourTime" type="time">
+</section>
+<section class="birthbox">
+<h2>パートナーのこと</h2>
+<p>お相手の出生データ。</p>
+<label for="partnerName">呼び名（任意）</label>
+<input id="partnerName" placeholder="例：あきらくん">
+<label for="partnerPlace">出生地</label>
+<input id="partnerPlace" list="places" placeholder="例：島根県松江市">
+<p class="hint">市区町村名か都道府県を入力します。</p>
+<label for="partnerDate">生年月日</label>
+<input id="partnerDate" type="date" required>
+<label for="partnerTime">出生時刻（わかれば）</label>
+<input id="partnerTime" type="time">
+</section>
+<datalist id="places">
+</datalist>
+<p id="formMessage" class="error" aria-live="polite">
+</p>
+<button id="submitButton" class="button" type="submit">ふたりの星をひらく　→</button>
+</form>
+</section>
+<section id="resultPage" class="hidden">
+</section>
+</main>
+<script>
+  // JS モジュールが読み込めない場合でも、通常のフォーム送信で入力を消さない。
+  document.getElementById('birthForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+  });
+  window.addEventListener('error', function () {
+    document.getElementById('formMessage').textContent = '計算の準備で止まりました。入力内容は残っています。もう一度試しても直らない場合は、この画面をそのまま教えてください。';
+  });
+</script>
+<script type="module" src="./app.js">
+</script>
+</body>
+</html>
