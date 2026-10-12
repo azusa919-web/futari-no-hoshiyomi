@@ -1,4 +1,7 @@
-import {SwissEphemeris,Planet,HouseSystem} from './vendor/swisseph-browser.js?v=20261012b';
+import SwissEphemeris from './vendor/swisseph-browser.js?v=20261012c';
+// ライブラリ側の名前付き出力には依存せず、Swiss Ephemeris の公式番号をここで固定する。
+const Planet={Sun:0,Moon:1,Mercury:2,Venus:3,Mars:4,Jupiter:5,Saturn:6};
+const HouseSystem={Placidus:'P'};
 
 const signs=['牡羊座','牡牛座','双子座','蟹座','獅子座','乙女座','天秤座','蠍座','射手座','山羊座','水瓶座','魚座'],planetNames={Sun:'太陽',Moon:'月',Mercury:'水星',Venus:'金星',Mars:'火星',Jupiter:'木星',Saturn:'土星'};
 
