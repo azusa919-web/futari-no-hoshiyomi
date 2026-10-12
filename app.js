@@ -24,7 +24,7 @@ return cities.concat(prefs).find(p=>q.includes(key(p[0]))||key(p[0]).includes(q)
 i<13;
 i++)if(norm(l-c[i])<norm(c[i===12?1:i+1]-c[i]))return i;
 return 12}async function engine(){if(!swe){if(!window.SwissEphemeris)throw Error('天体計算の準備が完了していません。');swe=new window.SwissEphemeris();
-await swe.init(new URL('./vendor/swisseph.wasm',import.meta.url).href)}return swe}
+await swe.init()}return swe}
 async function chart(id){const dt=$(id+'Date').value,tm=$(id+'Time').value,loc=lookup($(id+'Place').value);
 if(!dt)throw Error('二人分の生年月日を入れてくれ。');
 if(!loc)throw Error('出生地は候補の市区町村か都道府県を入れてくれ。');
