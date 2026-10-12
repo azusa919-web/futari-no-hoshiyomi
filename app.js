@@ -1,4 +1,4 @@
-import SwissEphemeris from './vendor/swisseph-browser.js?v=20261012c';
+// SwissEphemeris は index.html で先に読み込み、window に置く。
 // ライブラリ側の名前付き出力には依存せず、Swiss Ephemeris の公式番号をここで固定する。
 const Planet={Sun:0,Moon:1,Mercury:2,Venus:3,Mars:4,Jupiter:5,Saturn:6};
 const HouseSystem={Placidus:'P'};
@@ -23,7 +23,7 @@ function lookup(v){const q=v.replace(/[\s　]/g,'');
 return cities.concat(prefs).find(p=>q.includes(p[0].replace('県',''))||p[0].replace('県','').includes(q))}function house(l,c){for(let i=1;
 i<13;
 i++)if(norm(l-c[i])<norm(c[i===12?1:i+1]-c[i]))return i;
-return 12}async function engine(){if(!swe){swe=new SwissEphemeris();
+return 12}async function engine(){if(!swe){if(!window.SwissEphemeris)throw Error('天体計算の準備が完了していません。');swe=new window.SwissEphemeris();
 await swe.init(new URL('./vendor/swisseph.wasm',import.meta.url).href)}return swe}
 async function chart(id){const dt=$(id+'Date').value,tm=$(id+'Time').value,loc=lookup($(id+'Place').value);
 if(!dt)throw Error('二人分の生年月日を入れてくれ。');
